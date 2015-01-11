@@ -54,7 +54,14 @@ inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
 
+" gui
 set guioptions='ai' " quite minimal
+
+" clipboard
+noremap <C-x> "+x
+noremap <C-c> "+y
+noremap <C-v> "+gP
+inoremap <C-v> <Esc>"+gP<CR>i
 
 "  airline
 set laststatus=2
