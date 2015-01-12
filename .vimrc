@@ -77,3 +77,6 @@ let g:ctrlp_map = '<c-p>'
 " easy motion
 map <Leader> <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-bd-w)
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
