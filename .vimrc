@@ -83,6 +83,7 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources = {}
 let g:neocomplete#sources.go = ['omni']
+inoremap <expr><Tab>  neocomplete#start_manual_complete()
 
 " tweak omnicompletion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
