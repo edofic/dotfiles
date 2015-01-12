@@ -63,6 +63,10 @@ noremap <C-c> "+y
 noremap <C-v> "+gP
 inoremap <C-v> <Esc>"+gP<CR>i
 
+" general editing
+inoremap <C-BS> <C-W>
+
+
 "  airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
