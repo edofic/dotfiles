@@ -73,6 +73,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 " ctrlp
 let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = 'ra' " repo, cwd, file pwd 
 
 " easy motion
 map <Leader> <Plug>(easymotion-prefix)
