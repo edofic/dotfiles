@@ -46,6 +46,9 @@ set scrolloff=3
 set autoread
 set history=1000
 
+autocmd FocusLost * silent! wa
+set autowriteall
+
 " tab navigation
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
