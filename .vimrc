@@ -58,10 +58,7 @@ inoremap <C-t>     <Esc>:tabnew<CR>
 set guioptions='ai' " quite minimal
 
 " clipboard
-noremap <C-x> "+x
-noremap <C-c> "+y
-noremap <C-v> "+gP
-inoremap <C-v> <Esc>"+gP<CR>i
+set clipboard=unnamedplus 
 
 " general editing
 inoremap <C-BS> <C-W>
