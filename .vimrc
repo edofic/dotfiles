@@ -53,10 +53,14 @@ set autowriteall
 
 " tab navigation
 nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <F3>      :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
+nnoremap <F4>      :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <F3>      <Esc>:tabprevious<CR>
 inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <F4>      <Esc>:tabnext<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
 
 " gui
