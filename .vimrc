@@ -16,6 +16,8 @@ set showmatch
 syntax enable
 colorscheme molokai
 let g:rehash256 = 1 " molokai terminal optimization
+set t_ut= " disable background color erase
+
 set number
 
 set incsearch
