@@ -1,0 +1,17 @@
+XTerm*termName: xterm-256color
+XTerm*locale: true
+XTerm*metaSendsEscape: true
+XTerm*saveLines: 4096
+
+XTerm*faceName: DejaVuSansMono:size=10:antialias=true
+XTerm*font: 7x13
+XTerm*scaleHeight: 1.1
+
+XTerm*foreground: rgb:d0/d0/d0
+XTerm*background: rgb:1b/1d/1e
+
+*VT100.Translations: #override \
+                    Shift <Key>Up:              scroll-back(1) \n\
+                    Shift <Key>Down:            scroll-forw(1) \n\
+                    ~Meta Shift Ctrl <Key>V:    insert-selection(CLIPBOARD) \n\
+                    ~Meta Shift Ctrl <Key>C:    copy-selection(CLIPBOARD) 
