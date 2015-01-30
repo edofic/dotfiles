@@ -1,27 +1,27 @@
 [submodule "bundle/vim-easymotion"]
-	path = bundle/vim-easymotion
+	path = .vim/bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion
 [submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
+	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
 [submodule "bundle/ctrlp.vim"]
-	path = bundle/ctrlp.vim
+	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/tabular"]
-	path = bundle/tabular
+	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular
 [submodule "bundle/vim-multiple-cursors"]
-	path = bundle/vim-multiple-cursors
+	path = .vim/bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
 [submodule "bundle/vim-go"]
-	path = bundle/vim-go
+	path = .vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
 [submodule "bundle/neocomplete"]
-	path = bundle/neocomplete
+	path = .vim/bundle/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim
 [submodule "snippets"]
-	path = snippets
+	path = .vim/snippets
 	url = https://github.com/Shougo/neosnippet-snippets
 [submodule "bundle/neosnippet.vim"]
-	path = bundle/neosnippet.vim
+	path = .vim/bundle/neosnippet.vim
 	url = https://github.com/Shougo/neosnippet.vim
