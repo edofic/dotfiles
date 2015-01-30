@@ -72,6 +72,22 @@ set guioptions='ai' " quite minimal
 " general editing
 inoremap <C-BS> <C-W>
 
+inoremap <C-s> <ESC>:w<CR>i
+nnoremap <C-s> :w<CR>
+
+imap <C-h> <Left>
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-l> <Right>
+
+
+" training wheels: disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+
 
 "  airline
 set laststatus=2
