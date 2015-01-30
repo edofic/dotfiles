@@ -67,7 +67,7 @@ inoremap <C-t>     <Esc>:tabnew<CR>
 set guioptions='ai' " quite minimal
 
 " clipboard
-set clipboard=unnamedplus 
+" set clipboard=unnamedplus 
 
 " general editing
 inoremap <C-BS> <C-W>
