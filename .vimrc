@@ -99,8 +99,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra' " repo, cwd, file pwd 
 
 " easy motion
-map <Leader> <Plug>(easymotion-prefix)
-nmap s <Plug>(easymotion-bd-w)
+map <Leader>s <Plug>(easymotion-bd-w)
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
