@@ -25,3 +25,18 @@
 [submodule "bundle/neosnippet.vim"]
 	path = .vim/bundle/neosnippet.vim
 	url = https://github.com/Shougo/neosnippet.vim
+[submodule ".vim/bundle/BufOnly.vim"]
+	path = .vim/bundle/BufOnly.vim
+	url = https://github.com/vim-scripts/BufOnly.vim
+[submodule ".vim/bundle/bufexplorer"]
+	path = .vim/bundle/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer
+[submodule ".vim/bundle/gundo.vim"]
+	path = .vim/bundle/gundo.vim
+	url = https://github.com/sjl/gundo.vim.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule ".vim/bundle/typescript-vim"]
+	path = .vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
