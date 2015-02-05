@@ -63,6 +63,14 @@ inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <F4>      <Esc>:tabnext<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
 
+" buffer navigation
+noremap <C-B>  <Esc>:ToggleBufExplorer<CR>
+" gz in command mode closes the current buffer
+map gz :bdelete<cr>
+" g[bB] in command mode switch to the next/prev. buffer
+map gb :bnext<cr>
+map gB :bprev<cr>
+
 " gui
 set guioptions='ai' " quite minimal
 
@@ -100,16 +108,20 @@ let g:ctrlp_working_path_mode = 'ra' " repo, cwd, file pwd
 
 " gundo
 nnoremap <F8> :GundoToggle<CR>
+
 " easy motion
 map <Leader>s <Plug>(easymotion-bd-w)
 
 " neocomplete
-let completeopt='menu' " no annoying top window 
+set completeopt=menuone " no annoying top window 
 let g:neocomplete#enable_at_startup = 0
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources = {}
 let g:neocomplete#sources.go = ['omni']
 inoremap <expr><C-n>  neocomplete#start_manual_complete()
+
+" NERDtree
+noremap <Leader>n <Esc>:NERDTreeToggle<CR>
 
 " tweak omnicompletion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
