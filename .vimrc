@@ -104,6 +104,7 @@ nnoremap <F8> :GundoToggle<CR>
 map <Leader>s <Plug>(easymotion-bd-w)
 
 " neocomplete
+let completeopt='menu' " no annoying top window 
 let g:neocomplete#enable_at_startup = 0
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources = {}
