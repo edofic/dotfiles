@@ -98,6 +98,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra' " repo, cwd, file pwd 
 
+" gundo
+nnoremap <F8> :GundoToggle<CR>
 " easy motion
 map <Leader>s <Plug>(easymotion-bd-w)
 
