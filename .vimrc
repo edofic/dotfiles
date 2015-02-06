@@ -105,6 +105,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra' " repo, cwd, file pwd 
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|target|bin|node_modules)$',
+  \ 'file': '\v\.(class|so)$',
+  \ }
 
 " gundo
 nnoremap <F8> :GundoToggle<CR>
