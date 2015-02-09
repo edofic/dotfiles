@@ -70,6 +70,8 @@ map gz :bdelete<cr>
 " g[bB] in command mode switch to the next/prev. buffer
 map gb :bnext<cr>
 map gB :bprev<cr>
+map <F5> gB
+map <F6> gb
 
 " gui
 set guioptions='ai' " quite minimal
