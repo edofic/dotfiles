@@ -90,6 +90,9 @@ imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
 
+" building
+nnoremap <C-m> :make<CR><CR>
+
 
 " training wheels: disable arrow keys
 noremap <Up> <NOP>
