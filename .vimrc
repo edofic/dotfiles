@@ -147,3 +147,8 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go NeoCompleteEnable
 au FileType go nmap <Leader>p :GoImport 
 
+" go java settings
+au FileType java nmap <Leader>i :JavaDocPreview<CR>
+au FileType java nmap <Leader>f :JavaSearch<CR>
+au FileType java nmap <Leader>p :JavaImport<CR>
+au FileType java NeoCompleteEnable
