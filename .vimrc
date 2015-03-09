@@ -107,6 +107,7 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+nnoremap <Leader>b :BufOnly<CR>
 
 
 "  airline
@@ -134,7 +135,7 @@ let g:neocomplete#enable_at_startup = 0
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources = {}
 let g:neocomplete#sources.java = ['omnifunc']
-let g:neocomplete#sources.go = ['omni']
+let g:neocomplete#sources.go = ['omni', 'omnifunc']
 inoremap <expr><C-n>  neocomplete#start_manual_complete()
 
 " NERDtree
