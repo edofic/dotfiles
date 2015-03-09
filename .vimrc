@@ -134,16 +134,11 @@ set completeopt=menuone " no annoying top window
 let g:neocomplete#enable_at_startup = 0
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources = {}
-let g:neocomplete#sources.java = ['omnifunc']
-let g:neocomplete#sources.go = ['omni', 'omnifunc']
+" let g:neocomplete#sources.go = ['omni', 'omnifunc']
 inoremap <expr><C-n>  neocomplete#start_manual_complete()
 
 " NERDtree
 noremap <Leader>n <Esc>:NERDTreeToggle<CR>
-
-" eclim
-let g:EclimCompletionMethod='omnifunc'
-
 
 " tweak omnicompletion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -158,8 +153,3 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go NeoCompleteEnable
 au FileType go nmap <Leader>p :GoImport 
 
-" go java settings
-au FileType java nmap <Leader>i :JavaDocPreview<CR>
-au FileType java nmap <Leader>f :JavaSearch<CR>
-au FileType java nmap <Leader>p :JavaImport<CR>
-au FileType java NeoCompleteEnable
