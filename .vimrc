@@ -109,6 +109,8 @@ noremap <Right> <NOP>
 
 nnoremap <Leader>b :BufOnly<CR>
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 "  airline
 set laststatus=2
