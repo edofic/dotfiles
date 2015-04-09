@@ -38,6 +38,7 @@ set encoding=utf-8
 
 filetype plugin indent on
 
+set digraph
 
 set ttimeout
 set ttimeoutlen=100
