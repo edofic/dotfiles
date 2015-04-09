@@ -92,13 +92,8 @@ inoremap <C-BS> <C-W>
 inoremap <C-s> <ESC>:w<CR>i
 nnoremap <C-s> :w<CR>
 
-imap <C-h> <Left>
-imap <C-j> <Down>
-imap <C-k> <Up>
-imap <C-l> <Right>
-
 " building
-nnoremap <C-m> :make<CR><CR>
+nnoremap <C-m> :Make<CR>
 
 
 " training wheels: disable arrow keys
