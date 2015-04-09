@@ -95,7 +95,7 @@ nnoremap <C-s> :w<CR>
 
 " building
 nnoremap <C-m> :Make<CR>
-
+nnoremap <Leader>m :Dispatch<CR>
 
 " training wheels: disable arrow keys
 noremap <Up> <NOP>
@@ -150,4 +150,5 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go NeoCompleteEnable
 au FileType go nmap <Leader>p :GoImport 
+au FileType go let b:dispatch = 'make goinstall'
 
