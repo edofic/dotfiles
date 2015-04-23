@@ -32,13 +32,16 @@ set smartcase
 set wildmenu
 set wildmode=longest:full
 
+set wrap
+set linebreak
+
 set directory=$HOME/.vim/swapfiles//
 
 set encoding=utf-8
 
 filetype plugin indent on
 
-set digraph
+" set digraph
 
 set ttimeout
 set ttimeoutlen=100
