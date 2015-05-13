@@ -132,7 +132,7 @@ map <Leader>s <Plug>(easymotion-bd-w)
 
 " neocomplete
 set completeopt=menuone " no annoying top window 
-let g:neocomplete#enable_at_startup = 0
+let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources = {}
 " let g:neocomplete#sources.go = ['omni', 'omnifunc']
@@ -144,7 +144,7 @@ noremap <Leader>n <Esc>:NERDTreeToggle<CR>
 " tweak omnicompletion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -154,4 +154,5 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go NeoCompleteEnable
 au FileType go nmap <Leader>p :GoImport 
 au FileType go let b:dispatch = 'make goinstall'
+
 
