@@ -14,8 +14,8 @@ set backspace=indent,eol,start
 set showmatch
 
 syntax enable
-colorscheme molokai
 let g:rehash256 = 1 " molokai terminal optimization
+colorscheme molokai
 set t_ut= " disable background color erase
 
 set number
@@ -90,6 +90,8 @@ set guioptions='ai' " quite minimal
 " clipboard
 " set clipboard=unnamedplus 
 
+set nofoldenable
+
 " general editing
 inoremap <C-BS> <C-W>
 
@@ -108,6 +110,7 @@ noremap <Right> <NOP>
 
 nnoremap <Leader>b :BufOnly<CR>
 
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
@@ -121,7 +124,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra' " repo, cwd, file pwd 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|target|pkg|bin|build|node_modules)$',
-  \ 'file': '\v\.(class|so)$',
+  \ 'file': '\v\.(class|so|pyc)$',
   \ }
 
 " gundo
@@ -140,19 +143,30 @@ inoremap <expr><C-n>  neocomplete#start_manual_complete()
 
 " NERDtree
 noremap <Leader>n <Esc>:NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
+
+" flake8
+let g:flake8_show_in_file=1
+let g:flake8_show_in_gutter=1
 
 " tweak omnicompletion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 
 " go lang settings
-au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <buffer> <Leader>i <Plug>(go-info)
 au FileType go NeoCompleteEnable
-au FileType go nmap <Leader>p :GoImport 
+au FileType go nmap <buffer> <Leader>p :GoImport 
 au FileType go let b:dispatch = 'make goinstall'
 
+" git options
+au FileType gitcommit setlocal textwidth=80 
 
+
+" python options
+au FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 " override ftplugin/python
+au FileType python setlocal colorcolumn=80
