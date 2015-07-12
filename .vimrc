@@ -114,6 +114,10 @@ nnoremap <Leader>b :BufOnly<CR>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
+" strip trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+
 "  airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
