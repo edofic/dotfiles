@@ -174,3 +174,6 @@ au FileType gitcommit setlocal textwidth=80 spell
 " python options
 au FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 " override ftplugin/python
 au FileType python setlocal colorcolumn=80
+
+" javascript options
+au FileType javascript nnoremap <buffer> <F7> :JSHint<CR>
