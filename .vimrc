@@ -168,7 +168,7 @@ au FileType go nmap <buffer> <Leader>p :GoImport
 au FileType go let b:dispatch = 'make goinstall'
 
 " git options
-au FileType gitcommit setlocal textwidth=80 
+au FileType gitcommit setlocal textwidth=80 spell
 
 
 " python options
