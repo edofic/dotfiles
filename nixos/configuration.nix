@@ -5,10 +5,10 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-    
+
   boot.loader.gummiboot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices = [ { 
+  boot.initrd.luks.devices = [ {
     device = "/dev/sda2";
     name = "crypted";
   } ];
@@ -20,7 +20,7 @@
   };
 
   networking = {
-    hostName = "amaterasu"; 
+    hostName = "amaterasu";
     networkmanager.enable = true;
   };
 
@@ -37,12 +37,28 @@
   };
 
   environment.systemPackages = with pkgs; [
-    wget vimHugeX sudo manpages gitAndTools.gitFull tmux binutils nix nix-repl
+    nix
+    nix-repl
 
-    haskellPackages.xmobar
+    wget
+    curl
+    htop
+    lsof
+    tree
+    binutils
+    sudo
+    manpages
+    psmisc
+    file
+    zip
+    unzip
+    which
 
-    xfontsel
-    xlsfonts
+    tmux
+    vimHugeX
+    gitAndTools.gitFull
+    meld
+    python27Packages.docker_compose
 
     vlc
     thunderbird
@@ -57,8 +73,12 @@
     gnome3.nautilus
     gnome3.networkmanagerapplet
 
+    haskellPackages.xmobar
+    xfontsel
+    xlsfonts
     dmenu
     gmrun
+    scrot
     feh
     xorg.xbacklight
     xscreensaver
@@ -67,27 +87,53 @@
     redshift
     pavucontrol
     trayer
-    file zip unzip which
-    python27Packages.docker_compose
   ];
 
-  services.xserver = {
-    enable = true;
-    layout = "us,si";
-    xkbOptions = "caps:swapescape,grp:switch,eurosign:e";
-    synaptics = {
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      corefonts
+      inconsolata
+      symbola
+      ubuntu_font_family
+      unifont
+      vistafonts
+    ];
+  };
+
+  services = {
+    xserver = {
       enable = true;
-      twoFingerScroll = true;
-      horizontalScroll = true;
-      additionalOptions = ''
-        Option "VertScrollDelta" "-58"
-                          '';
+      layout = "us,si";
+      xkbOptions = "caps:swapescape,grp:switch,eurosign:e";
+      synaptics = {
+        enable = true;
+        twoFingerScroll = true;
+        horizontalScroll = true;
+        additionalOptions = ''
+          Option "VertScrollDelta" "-58"
+                            '';
+      };
+      windowManager.xmonad = {
+        enable = true;
+        enableContribAndExtras = true;
+      };
+      windowManager.default = "xmonad";
     };
-    windowManager.xmonad = {
+
+    redshift = {
       enable = true;
-      enableContribAndExtras = true;
+
+      # Ljubljana
+      latitude = "46";
+      longitude = "14.5";
+
+      temperature = {
+        day = 6400;
+        night = 4600;
+      };
     };
-    windowManager.default = "xmonad";
   };
 
   virtualisation.docker = {

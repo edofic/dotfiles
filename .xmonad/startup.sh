@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function restart {
-  killall "$1"
+  pkill "$1"
   START="$1 $2"
   `$START > /dev/null &`
 }
