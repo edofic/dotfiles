@@ -88,9 +88,11 @@ map <F6> gb
 set guioptions='ai' " quite minimal
 
 " clipboard
-" set clipboard=unnamedplus 
+" set clipboard=unnamedplus
 
 set nofoldenable
+
+set colorcolumn=80
 
 " general editing
 inoremap <C-BS> <C-W>
@@ -125,7 +127,7 @@ let g:airline#extensions#tabline#enabled = 1
 " ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_working_path_mode = 'ra' " repo, cwd, file pwd 
+let g:ctrlp_working_path_mode = 'ra' " repo, cwd, file pwd
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|target|pkg|bin|build|node_modules)$',
   \ 'file': '\v\.(class|so|pyc)$',
@@ -138,7 +140,7 @@ nnoremap <F8> :GundoToggle<CR>
 map <Leader>s <Plug>(easymotion-bd-w)
 
 " neocomplete
-set completeopt=menuone " no annoying top window 
+set completeopt=menuone " no annoying top window
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources = {}
@@ -164,16 +166,15 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " go lang settings
 au FileType go nmap <buffer> <Leader>i <Plug>(go-info)
 au FileType go NeoCompleteEnable
-au FileType go nmap <buffer> <Leader>p :GoImport 
+au FileType go nmap <buffer> <Leader>p :GoImport
 au FileType go let b:dispatch = 'make goinstall'
 
 " git options
 au FileType gitcommit setlocal textwidth=80 spell
 
-
 " python options
 au FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 " override ftplugin/python
-au FileType python setlocal colorcolumn=80
+au FileType python nnoremap <C-F7> :call flake8#Flake8UnplaceMarkers()<CR>
 
 " javascript options
-au FileType javascript nnoremap <buffer> <F7> :JSHint<CR>
+au FileType javascript nnoremap <buffer> <F7> :SyntasticCheck eslint<CR>
