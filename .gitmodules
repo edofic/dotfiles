@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/jshint2.vim"]
 	path = .vim/bundle/jshint2.vim
 	url = git@github.com:Shutnik/jshint2.vim.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
