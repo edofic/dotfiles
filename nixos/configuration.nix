@@ -62,6 +62,7 @@
     tmux
     vimHugeX
     gitAndTools.gitFull
+    bashCompletion
     meld
     python27Packages.docker_compose
 
@@ -93,6 +94,10 @@
     pavucontrol
     trayer
   ];
+
+  programs = {
+    bash.enableCompletion = true;
+  };
 
   fonts = {
     enableFontDir = true;
