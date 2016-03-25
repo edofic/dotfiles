@@ -24,7 +24,7 @@ restart trayer "--edge top --align right --SetDockType true --SetPartialStrut tr
 
 ensure nm-applet
 
-# ensure redshift-gtk
+ensure volumeicon
 
 xset -dpms # turn off screen sleep
 xset r rate 250 30 # keyboard repeat rate

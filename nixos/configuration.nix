@@ -71,6 +71,7 @@
     firefox
     google-chrome-beta
 
+    evince
     gnome3.eog
     gnome3.file-roller
     gnome3.gnome-calculator
@@ -92,7 +93,9 @@
     clipit
     redshift
     pavucontrol
+    volumeicon
     trayer
+    pmutils
   ];
 
   programs = {
