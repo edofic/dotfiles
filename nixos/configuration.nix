@@ -19,6 +19,10 @@
     options = [ "subvol=/" ];
   };
 
+  fileSystems."/tmp" = {
+    fsType = "tmpfs";
+  };
+
   networking = {
     hostName = "amaterasu";
     networkmanager.enable = true;
