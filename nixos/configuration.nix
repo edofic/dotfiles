@@ -8,6 +8,7 @@
 
   boot.loader.gummiboot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [ "intel_idle.max_cstate=1" ];
   boot.initrd.luks.devices = [ {
     device = "/dev/sda2";
     name = "crypted";
