@@ -29,7 +29,7 @@ layout = mkToggle (single REFLECTX) $
   ratio   = 1/2
   delta   = 3/100
 
-keyboardShortcuts = [ ((controlMask .|. mod1Mask, xK_l), spawn "cinnamon-screensaver-command -l") -- lock screen
+keyboardShortcuts = [ ((controlMask .|. mod1Mask, xK_l), spawn "xscreensaver-command -l") -- lock screen
                     , ((controlMask .|. mod1Mask, xK_s), spawn "susp.sh")
                     , ((mod4Mask, xK_F8), spawn "pavucontrol") -- launch volume control
                     , ((mod4Mask, xK_g), spawn "google-chrome-beta")

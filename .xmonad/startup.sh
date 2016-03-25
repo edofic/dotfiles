@@ -18,7 +18,7 @@ mkdir -p /tmp/temp
 
 set_wallpaper ~/.xmonad/wallpaper
 
-# ensure cinnamon-screensaver
+ensure xscreensaver -no-splash
 
 restart trayer "--edge top --align right --SetDockType true --SetPartialStrut true  --expand true --width 20 --transparent true --tint 0x191970 --height 12"
 
