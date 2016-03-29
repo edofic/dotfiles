@@ -133,6 +133,13 @@
         enableContribAndExtras = true;
       };
       windowManager.default = "xmonad";
+      config = ''
+        Section "Device"
+                Identifier "Intel Graphics"
+                Driver   "intel"
+                Option "TearFree" "true"
+        EndSection
+      '';
     };
 
     redshift = {
