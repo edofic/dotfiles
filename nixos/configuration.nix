@@ -156,16 +156,20 @@
     };
   };
 
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "btrfs";
+  virtualisation = {
+    docker = {
+      enable = true;
+      storageDriver = "btrfs";
+    };
+    virtualbox.host.enable = true;
   };
+
 
   users.extraUsers.andraz = {
     home = "/home/andraz";
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];
+    extraGroups = [ "audio" "docker" "networkmanager" "vboxusers" "wheel" ];
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
