@@ -26,6 +26,8 @@ ensure nm-applet
 
 ensure volumeicon
 
+ensure clipit
+
 xset -dpms # turn off screen sleep
 xset r rate 250 30 # keyboard repeat rate
 xsetroot -cursor_name left_ptr
