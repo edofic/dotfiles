@@ -58,6 +58,8 @@
     zip
     unzip
     which
+    lshw
+    powertop
 
     tmux
     vimHugeX
@@ -69,6 +71,8 @@
     vlc
     thunderbird
     firefox
+    libreoffice
+    qbittorrent
     google-chrome-beta
 
     evince
@@ -100,6 +104,7 @@
 
   programs = {
     bash.enableCompletion = true;
+    zsh.enable = true;
   };
 
   fonts = {
