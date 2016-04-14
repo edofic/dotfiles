@@ -76,12 +76,12 @@
     google-chrome-beta
 
     evince
+    pcmanfm
     gnome3.eog
     gnome3.file-roller
     gnome3.gnome-calculator
     gnome3.gnome-disk-utility
     gnome3.gnome-system-monitor
-    gnome3.nautilus
     gnome3.networkmanagerapplet
 
     haskellPackages.xmobar
@@ -100,6 +100,7 @@
     volumeicon
     trayer
     pmutils
+    shared_mime_info
   ];
 
   programs = {

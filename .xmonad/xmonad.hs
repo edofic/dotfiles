@@ -38,7 +38,7 @@ keyboardShortcuts = [ ((controlMask .|. mod1Mask, xK_l), spawn "xscreensaver-com
                     , ((mod4Mask, xK_m), spawn "gnome-system-monitor")
                     , ((mod4Mask, xK_c), spawn "gnome-calculator")
                     , ((mod4Mask .|. mod1Mask, xK_c), spawn "calendar")
-                    , ((mod4Mask, xK_n), spawn "nautilus")
+                    , ((mod4Mask, xK_n), spawn "pcmanfm")
                     , ((mod4Mask, xK_x), spawn "xterm")
                     , ((mod4Mask, xK_r), spawn "gvim ~/delo/reciprocity/the_list")
                     , ((mod4Mask .|. mod1Mask, xK_s), runStartupScript)
