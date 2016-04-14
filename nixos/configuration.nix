@@ -60,6 +60,7 @@
     which
     lshw
     powertop
+    iotop
 
     tmux
     vimHugeX
@@ -71,8 +72,10 @@
     vlc
     thunderbird
     firefox
+    gimp
     libreoffice
     qbittorrent
+    google-chrome
     google-chrome-beta
 
     evince
