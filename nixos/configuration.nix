@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let extrapkgs = pkgs.callPackage ./extras/all.nix {};
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
