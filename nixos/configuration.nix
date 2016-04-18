@@ -64,6 +64,7 @@ in
     lshw
     powertop
     iotop
+    extrapkgs.margarinetools
 
     tmux
     vimHugeX
@@ -165,6 +166,13 @@ in
         day = 6400;
         night = 4600;
       };
+    };
+
+    cron = {
+      enable = true;
+      systemCronJobs = [
+        "*/5 * * * * root	timesnap.sh /mnt/btrfs-root __root/home timesnaps__home__5_min 300"
+      ];
     };
   };
 
