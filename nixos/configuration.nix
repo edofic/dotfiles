@@ -141,6 +141,9 @@ in
           Option "VertScrollDelta" "-58"
                             '';
       };
+      desktopManager.gnome3 = {
+        enable = true;
+      };
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
@@ -174,6 +177,9 @@ in
         "*/5 * * * * root	timesnap.sh /mnt/btrfs-root __root/home timesnaps__home__5_min 300"
       ];
     };
+
+    dbus.enable = true;
+    gnome3.gvfs.enable = true;
   };
 
   virtualisation = {
