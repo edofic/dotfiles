@@ -10,6 +10,7 @@ in
     ];
 
   boot.loader.gummiboot.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "intel_idle.max_cstate=1" ];
   boot.initrd.luks.devices = [ {
