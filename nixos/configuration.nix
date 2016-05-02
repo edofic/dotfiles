@@ -9,23 +9,28 @@ in
       ./hardware-configuration.nix
     ];
 
-  boot.loader.gummiboot.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "intel_idle.max_cstate=1" ];
-  boot.initrd.luks.devices = [ {
-    device = "/dev/sda2";
-    name = "crypted";
-  } ];
-
-  fileSystems."/mnt/btrfs-root" = {
-    device = "/dev/mapper/crypted";
-    fsType = "btrfs";
-    options = [ "subvol=/" ];
+  boot = {
+    loader = {
+      gummiboot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "intel_idle.max_cstate=1" ];
+    initrd.luks.devices = [ {
+      device = "/dev/sda2";
+      name = "crypted";
+    } ];
   };
 
-  fileSystems."/tmp" = {
-    fsType = "tmpfs";
+  fileSystems = {
+    "/mnt/btrfs-root" = {
+      device = "/dev/mapper/crypted";
+      fsType = "btrfs";
+      options = [ "subvol=/" ];
+    };
+    "/tmp" = {
+      fsType = "tmpfs";
+    };
   };
 
   networking = {
