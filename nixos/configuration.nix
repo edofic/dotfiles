@@ -84,9 +84,10 @@ in
     firefox
     gimp
     libreoffice
-    qbittorrent
     google-chrome
     google-chrome-beta
+    obs-studio
+    qbittorrent
 
     evince
     pcmanfm
@@ -107,6 +108,7 @@ in
     xorg.xbacklight
     xscreensaver
     xclip
+    xorg.xkill
     clipit
     redshift
     pavucontrol
