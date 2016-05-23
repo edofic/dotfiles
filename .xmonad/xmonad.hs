@@ -46,8 +46,9 @@ keyboardShortcuts = [ ((controlMask .|. mod1Mask, xK_l), spawn "xscreensaver-com
                     , ((noModMask, XF86.xF86XK_AudioLowerVolume), spawn "amixer set Master 10%-") -- decrease volume
                     , ((mod4Mask .|. controlMask, xK_F8), spawn  "xrandr --output eDP1 --mode 1024x768 --output HDMI2 --mode 1024x768 --same-as eDP1 ") -- mirror at 1024x768
                     , ((mod4Mask .|. controlMask, xK_F9), spawn  "xrandr --output eDP1 --off --output HDMI2 --off") -- everything off
-                    , ((mod4Mask .|. controlMask, xK_F10), spawn  "xrandr --output eDP1 --auto --output HDMI2 --off") -- only internal monitor
+                    , ((mod4Mask .|. controlMask, xK_F10), spawn  "xrandr --output eDP1 --auto --output DP1 --off --output HDMI2 --off") -- only internal monitor
                     , ((mod4Mask .|. controlMask, xK_F11), spawn  "xrandr --output eDP1 --off --output HDMI2 --auto") -- only hdmi
+                    , ((mod4Mask .|.  mod1Mask, xK_F11), spawn  "xrandr --output eDP1 --off --output DP1 --auto") -- only hdmi
                     , ((mod4Mask .|. controlMask, xK_F12), spawn  "xrandr --output eDP1 --auto --primary --preferred --output HDMI2 --auto --right-of eDP1") -- extend desktop
                     , ((controlMask, xK_F11), setKeyboardLayout "si")
                     , ((controlMask, xK_F12), setKeyboardLayout "us,si")
