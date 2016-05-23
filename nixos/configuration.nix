@@ -85,9 +85,7 @@ in
     gimp
     libreoffice
     google-chrome
-    google-chrome-beta
     obs-studio
-    qbittorrent
 
     evince
     pcmanfm
@@ -185,6 +183,8 @@ in
         "*/5 * * * * root	timesnap.sh /mnt/btrfs-root __root/home timesnaps__home__5_min 300"
       ];
     };
+
+    printing.enable = true;
 
     dbus.enable = true;
     gnome3.gvfs.enable = true;
