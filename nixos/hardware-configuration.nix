@@ -8,14 +8,14 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "sd_mod" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/8bbed9b7-715f-4d2f-b1fb-1f91667bbe5b";
+    { device = "/dev/mapper/crypted";
       fsType = "btrfs";
-      options = [ "subvol=/__root" ];
+      options = [ "subvol=__root" ];
     };
 
   fileSystems."/boot" =
@@ -25,5 +25,5 @@
 
   swapDevices = [ ];
 
-  nix.maxJobs = 4;
+  nix.maxJobs = lib.mkDefault 4;
 }
