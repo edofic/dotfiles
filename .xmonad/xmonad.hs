@@ -32,8 +32,8 @@ layout = mkToggle (single REFLECTX) $
 keyboardShortcuts = [ ((controlMask .|. mod1Mask, xK_l), spawn "xscreensaver-command -l") -- lock screen
                     , ((controlMask .|. mod1Mask, xK_s), spawn "susp.sh")
                     , ((mod4Mask, xK_F8), spawn "pavucontrol") -- launch volume control
-                    , ((mod4Mask, xK_g), spawn "google-chrome-beta")
-                    , ((mod4Mask .|. shiftMask, xK_g), spawn "google-chrome-beta --incognito")
+                    , ((mod4Mask, xK_g), spawn "google-chrome-stable")
+                    , ((mod4Mask .|. shiftMask, xK_g), spawn "google-chrome-stable --incognito")
                     , ((mod4Mask, xK_v), spawn "gvim")
                     , ((mod4Mask, xK_m), spawn "gnome-system-monitor")
                     , ((mod4Mask, xK_c), spawn "gnome-calculator")
