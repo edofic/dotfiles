@@ -11,7 +11,7 @@ in
 
   boot = {
     loader = {
-      gummiboot.enable = true;
+      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
