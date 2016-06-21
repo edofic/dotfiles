@@ -96,7 +96,7 @@ in
     gnome3.gnome-system-monitor
     gnome3.networkmanagerapplet
 
-    haskellPackages.xmobar
+    taffybar
     xfontsel
     xlsfonts
     dmenu
@@ -153,6 +153,9 @@ in
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
+        extraPackages = haskellPackages: [
+          haskellPackages.taffybar
+        ];
       };
       windowManager.default = "xmonad";
       config = ''
