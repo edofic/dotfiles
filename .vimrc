@@ -86,6 +86,7 @@ map <F6> gb
 
 " gui
 set guioptions='ai' " quite minimal
+set guifont=Inconsolata\ 12
 
 " clipboard
 " set clipboard=unnamedplus
