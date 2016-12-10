@@ -20,7 +20,8 @@ set_wallpaper ~/.xmonad/wallpaper
 
 ensure xscreensaver -no-splash
 
-restart taffybar
+# workaround for taffybar dbus bug
+DBUS_SESSION_BUS_ADDRESS=$(echo $DBUS_SESSION_BUS_ADDRESS | grep -Eo "^[^,]+") restart taffybar
 
 ensure nm-applet
 

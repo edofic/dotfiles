@@ -19,9 +19,17 @@ import System.Taffybar.WorkspaceSwitcher
 import System.Information.Memory
 import System.Information.CPU2
 
+import qualified Graphics.UI.Gtk as Gtk
+import qualified System.Process as P
+
 memCallback = do
   mi <- parseMeminfo
-  return [memoryUsedRatio mi]
+  return $ "mem: " ++ (show $ round $ memoryUsedRatio mi * 100) ++ "%"
+
+mkLabel interval producer = do
+  l <- pollingLabelNew "" interval producer
+  Gtk.widgetShowAll l
+  return l
 
 main = do
   let memCfg = defaultGraphConfig { graphDataColors = [(1, 0, 0, 1)]
@@ -33,16 +41,15 @@ main = do
                                   , graphLabel = Just "cpu"
                                   }
   let clock = textClockNew Nothing "<span fgcolor='orange'>%a %b %_d %H:%M</span>" 1
-      kernel = pollingLabelNew "initial" 1 (return "O hai")
       pager = taffyPagerNew defaultPagerConfig
       note = notifyAreaNew defaultNotificationConfig
-      wea = weatherNew (defaultWeatherConfig "KMSN") 10
-      mem = pollingGraphNew memCfg 1 memCallback
+      mem = mkLabel 1 memCallback
       tray = systrayNew
       batt = textBatteryNew "batt: $percentage$% ($time$)" 10
       cpu = textCpuMonitorNew "cpu: $total$" 1.0
+      kernel = commandRunnerNew 3600 "uname" ["-srn"] "<uname error>" "#00ff00"
 
-  defaultTaffybar defaultTaffybarConfig { startWidgets = [ pager, note ]
+  defaultTaffybar defaultTaffybarConfig { startWidgets = [ pager, note]
                                         , endWidgets = [ tray, clock, kernel, mem, cpu, batt ]
                                         , barHeight = 18
                                         }
