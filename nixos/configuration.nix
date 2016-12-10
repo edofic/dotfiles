@@ -84,8 +84,6 @@ in
     firefox
     gimp
     libreoffice
-    google-chrome
-    obs-studio
 
     evince
     pcmanfm
