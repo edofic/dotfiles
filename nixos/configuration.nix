@@ -138,15 +138,17 @@ in
     xserver = {
       enable = true;
       layout = "us,si";
-      xkbOptions = "caps:swapescape,grp:switch,eurosign:e";
+      xkbOptions = "caps:swapescape,grp:switch,eurosign:e,keypad:pointerkeys";
       synaptics = {
         enable = true;
         twoFingerScroll = true;
         horizontalScroll = true;
         additionalOptions = ''
           Option "VertScrollDelta" "-58"
+          Option "HorizScrollDelta" "-58"
                             '';
       };
+      libinput.enable = false;
       desktopManager.gnome3 = {
         enable = true;
       };
