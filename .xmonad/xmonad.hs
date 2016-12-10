@@ -8,6 +8,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.NoBorders
+import XMonad.Layout.ThreeColumns (ThreeCol(ThreeColMid))
 import XMonad.Layout.Reflect
 import XMonad.Util.EZConfig(additionalKeys)
 import qualified Graphics.X11.ExtraTypes.XF86 as XF86
@@ -22,13 +23,9 @@ myConfig = defaultConfig
   , startupHook = startup
   } `additionalKeys` keyboardShortcuts
 
-layout = mkToggle (single REFLECTX) $
-         mkToggle (single REFLECTY) $
-           tiled ||| Full where -- ||| Mirror tiled
-  tiled   = Tall nmaster delta ratio
-  nmaster = 1
-  ratio   = 1/2
-  delta   = 3/100
+layout = tiled ||| three ||| Full where
+  tiled   = Tall 1 (3/100) (1/2)
+  three   = ThreeColMid 1 (3/100) (1/2)
 
 keyboardShortcuts = [ ((controlMask .|. mod1Mask, xK_l), spawn "xscreensaver-command -l") -- lock screen
                     , ((controlMask .|. mod1Mask, xK_s), spawn "susp.sh")
@@ -41,7 +38,7 @@ keyboardShortcuts = [ ((controlMask .|. mod1Mask, xK_l), spawn "xscreensaver-com
                     , ((mod4Mask .|. mod1Mask, xK_c), spawn "calendar")
                     , ((mod4Mask, xK_n), spawn "pcmanfm")
                     , ((mod4Mask, xK_x), spawn "xterm")
-                    , ((mod4Mask, xK_r), spawn "gvim ~/delo/reciprocity/the_list")
+                    , ((mod4Mask, xK_r), spawn "gvim ~/delo/reciprocity/the_list.md")
                     , ((mod4Mask .|. mod1Mask, xK_s), runStartupScript)
                     , ((noModMask, XF86.xF86XK_AudioRaiseVolume), spawn "amixer set Master 10%+") -- increase volume
                     , ((noModMask, XF86.xF86XK_AudioLowerVolume), spawn "amixer set Master 10%-") -- decrease volume
