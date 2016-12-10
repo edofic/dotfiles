@@ -112,6 +112,8 @@ in
     trayer
     pmutils
     shared_mime_info
+
+    zlib
   ];
 
   programs = {
