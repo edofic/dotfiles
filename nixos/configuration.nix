@@ -135,6 +135,13 @@ in
   };
 
   services = {
+    logind = {
+      extraConfig = ''
+        HandlePowerKey=ignore
+      '';
+    };
+
+
     xserver = {
       enable = true;
       layout = "us,si";
