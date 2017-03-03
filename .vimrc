@@ -19,6 +19,7 @@ colorscheme molokai
 set t_ut= " disable background color erase
 
 set number
+set relativenumber
 
 set incsearch
 if maparg('<C-L>', 'n') ==# ''
