@@ -178,9 +178,19 @@ au FileType go let b:dispatch = 'make goinstall'
 au FileType gitcommit setlocal textwidth=80 spell
 
 " python options
+function! RunPythonTests(folder, module)
+  if match(a:module, '^test_') !=- 1
+    let g:py_test_folder = a:folder
+    let g:py_test_module = a:module
+  endif
+  :w
+  :silent !echo;echo ;echo;echo;echo
+  exec ":! cd " . g:py_test_folder . " ; python -m unittest " . g:py_test_module
+endfunction
+
 au FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 " override ftplugin/python
 au FileType python nnoremap <C-F7> :call flake8#Flake8UnplaceMarkers()<CR>
-au FileType python nnoremap <buffer> <Leader>u :w<CR>:!( cd '%:p:h'; python -m unittest '%:t:r' )<CR>
+au FileType python nnoremap <buffer> <Leader>u :call RunPythonTests(expand('%:p:h'), expand('%:t:r'))<CR>
 
 " javascript options
 au FileType javascript nnoremap <buffer> <F7> :SyntasticCheck eslint<CR>
