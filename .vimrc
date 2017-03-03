@@ -180,6 +180,7 @@ au FileType gitcommit setlocal textwidth=80 spell
 " python options
 au FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 " override ftplugin/python
 au FileType python nnoremap <C-F7> :call flake8#Flake8UnplaceMarkers()<CR>
+au FileType python nnoremap <buffer> <Leader>u :w<CR>:!( cd '%:p:h'; python -m unittest '%:t:r' )<CR>
 
 " javascript options
 au FileType javascript nnoremap <buffer> <F7> :SyntasticCheck eslint<CR>
