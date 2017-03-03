@@ -38,7 +38,7 @@ keyboardShortcuts = [ ((controlMask .|. mod1Mask, xK_l), spawn "xscreensaver-com
                     , ((mod4Mask .|. mod1Mask, xK_c), spawn "calendar")
                     , ((mod4Mask, xK_n), spawn "pcmanfm")
                     , ((mod4Mask, xK_x), spawn "xterm")
-                    , ((mod4Mask, xK_r), spawn "gvim ~/delo/reciprocity/the_list.md")
+                    , ((mod4Mask, xK_r), spawn "gvim ~/vimwiki/Reciprocity.wiki")
                     , ((mod4Mask .|. mod1Mask, xK_s), runStartupScript)
                     , ((noModMask, XF86.xF86XK_AudioRaiseVolume), spawn "amixer set Master 10%+") -- increase volume
                     , ((noModMask, XF86.xF86XK_AudioLowerVolume), spawn "amixer set Master 10%-") -- decrease volume
