@@ -108,6 +108,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" disable repeating hjkl (vim-hardtime)
+let g:hardtime_default_on = 1
+
 nnoremap <Leader>b :BufOnly<CR>
 
 " previous file
