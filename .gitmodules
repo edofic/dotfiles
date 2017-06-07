@@ -48,7 +48,7 @@
 	url = https://github.com/derekwyatt/vim-scala.git
 [submodule ".vim/bundle/tern_for_vim"]
 	path = .vim/bundle/tern_for_vim
-	url = git@github.com:marijnh/tern_for_vim.git
+	url = https://github.com/marijnh/tern_for_vim.git
 [submodule ".vim/bundle/mustache"]
 	path = .vim/bundle/mustache
 	url = git://github.com/mustache/vim-mustache-handlebars.git
@@ -57,7 +57,10 @@
 	url = https://github.com/nvie/vim-flake8.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
-	url = git@github.com:tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/elm.vim"]
 	path = .vim/bundle/elm.vim
 	url = https://github.com/lambdatoast/elm.vim.git
+[submodule ".vim/bundle/vimwiki"]
+	path = .vim/bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
