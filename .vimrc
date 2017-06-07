@@ -1,5 +1,6 @@
 execute pathogen#infect()
 
+set encoding=utf-8
 set mouse=a
 set mousehide " when typing
 set ruler
@@ -38,7 +39,6 @@ set linebreak
 
 set directory=$HOME/.vim/swapfiles//
 
-set encoding=utf-8
 
 filetype plugin indent on
 
