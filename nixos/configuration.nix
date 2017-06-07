@@ -131,6 +131,7 @@ in
       ubuntu_font_family
       unifont
       vistafonts
+      powerline-fonts
     ];
   };
 
