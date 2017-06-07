@@ -85,9 +85,12 @@ map gB :bprev<cr>
 map <F5> gB
 map <F6> gb
 
-" gui
-set guioptions='ai' " quite minimal
-set guifont=Inconsolata\ 12
+" gvim
+if has("gui_running")
+  set guioptions='ai' " quite minimal
+  set guifont=Inconsolata\ 12
+  set guiheadroom=-50
+endif
 
 " clipboard
 " set clipboard=unnamedplus
