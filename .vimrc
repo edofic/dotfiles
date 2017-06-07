@@ -14,7 +14,7 @@ set backspace=indent,eol,start
 set showmatch
 
 syntax enable
-let g:rehash256 = 1 " molokai terminal optimization
+" let g:rehash256 = 1 " molokai terminal optimization
 colorscheme molokai
 set t_ut= " disable background color erase
 
