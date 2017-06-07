@@ -58,10 +58,10 @@ set autowriteall
 set hidden " undo after buffer switching
 
 " persistent undo history
-" set undofile
-" set undodir=$HOME/.vim/undo
-" set undolevels=1000
-" set undoreload=10000
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=10000
+set undoreload=10000
 
 " tab navigation
 nnoremap <C-S-tab> :tabprevious<CR>
