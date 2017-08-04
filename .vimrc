@@ -110,9 +110,10 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-" disable repeating hjkl (vim-hardtime)
-let g:hardtime_default_on = 1
+" nnoremap hh <NOP>
+" nnoremap jj <NOP>
+" nnoremap kk <NOP>
+" nnoremap ll <NOP>
 
 nnoremap <Leader>b :BufOnly<CR>
 
@@ -193,6 +194,8 @@ endfunction
 au FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 " override ftplugin/python
 au FileType python nnoremap <C-F7> :call flake8#Flake8UnplaceMarkers()<CR>
 au FileType python nnoremap <buffer> <Leader>u :call RunPythonTests(expand('%:p:h'), expand('%:t:r'))<CR>
+
+au FileType python nnoremap <Leader>" /\([^"]\zs""\?\ze[^"]\)\<Bar>\([^"]\zs""\?\ze$\)<CR>
 
 " javascript options
 au FileType javascript nnoremap <buffer> <F7> :SyntasticCheck eslint<CR>
