@@ -19,6 +19,7 @@ in
     initrd.luks.devices = [ {
       device = "/dev/sda2";
       name = "crypted";
+      allowDiscards = true;
     } ];
   };
 
@@ -26,7 +27,7 @@ in
     "/mnt/btrfs-root" = {
       device = "/dev/mapper/crypted";
       fsType = "btrfs";
-      options = [ "subvol=/" ];
+      options = [ "subvol=/" "discard" "noatime" "nodiratime" ];
     };
     "/tmp" = {
       fsType = "tmpfs";
@@ -38,9 +39,15 @@ in
     networkmanager.enable = true;
   };
 
-  hardware.pulseaudio = {
-    enable = true;
-    support32Bit = true;
+  hardware = {
+    pulseaudio = {
+      enable = true;
+      support32Bit = true;
+    };
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+    };
   };
 
 
@@ -142,6 +149,7 @@ in
       '';
     };
 
+    fstrim.enable = true;
 
     xserver = {
       enable = true;
