@@ -176,6 +176,7 @@ au FileType go nmap <buffer> <Leader>i <Plug>(go-info)
 au FileType go NeoCompleteEnable
 au FileType go nmap <buffer> <Leader>p :GoImport
 au FileType go let b:dispatch = 'make goinstall'
+au FileType go nnoremap <buffer> <Leader>:w :GoFmt<CR>:w<CR>
 
 " git options
 au FileType gitcommit setlocal textwidth=80 spell
