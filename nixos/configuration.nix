@@ -121,6 +121,21 @@ in
     shared_mime_info
 
     zlib
+    cabal-install
+    cabal2nix
+    ghc
+    gnumake
+    inotify-tools
+    jq
+    lm_sensors
+    lz4
+    mtr
+    nix-prefetch-git
+    nix-repl
+    qbittorrent
+    rsync
+    scala
+    steam
   ];
 
   programs = {
