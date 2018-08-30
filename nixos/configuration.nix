@@ -37,6 +37,10 @@ in
   networking = {
     hostName = "amaterasu";
     networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 20001 ];
+    };
   };
 
   hardware = {
@@ -48,10 +52,13 @@ in
       driSupport = true;
       driSupport32Bit = true;
     };
+    bluetooth.enable = true;
   };
 
 
   time.timeZone = "Europe/Ljubljana";
+
+  nix.package = pkgs.nixUnstable;
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -88,7 +95,6 @@ in
 
     vlc
     thunderbird
-    firefox
     gimp
     libreoffice
 
@@ -99,6 +105,7 @@ in
     gnome3.gnome-calculator
     gnome3.gnome-disk-utility
     gnome3.gnome-system-monitor
+    gnome3.gnome-bluetooth
     gnome3.networkmanagerapplet
 
     taffybar
