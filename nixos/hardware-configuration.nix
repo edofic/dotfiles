@@ -8,22 +8,30 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/mapper/crypted";
+    { device = "/dev/disk/by-uuid/0cc09c3b-27fe-4854-be8e-d2eada087c76";
       fsType = "btrfs";
       options = [ "subvol=__root" ];
     };
+
+  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/3b6034d0-fff2-465e-8d16-3812d4f29b6f";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/1D89-90D8";
       fsType = "vfat";
     };
 
+  fileSystems."/tmp" =
+    { device = "tmpfs";
+      fsType = "tmpfs";
+    };
+
   swapDevices = [ ];
 
-  nix.maxJobs = lib.mkDefault 4;
+  nix.maxJobs = lib.mkDefault 8;
+  powerManagement.cpuFreqGovernor = "powersave";
 }

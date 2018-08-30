@@ -15,23 +15,7 @@ in
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "intel_idle.max_cstate=1" ];
-    initrd.luks.devices = [ {
-      device = "/dev/sda2";
-      name = "crypted";
-      allowDiscards = true;
-    } ];
-  };
-
-  fileSystems = {
-    "/mnt/btrfs-root" = {
-      device = "/dev/mapper/crypted";
-      fsType = "btrfs";
-      options = [ "subvol=/" "discard" "noatime" "nodiratime" ];
-    };
-    "/tmp" = {
-      fsType = "tmpfs";
-    };
+    # kernelParams = [ "intel_idle.max_cstate=1" ];
   };
 
   networking = {
@@ -46,13 +30,15 @@ in
   hardware = {
     pulseaudio = {
       enable = true;
-      support32Bit = true;
+      # support32Bit = true;
+      package = pkgs.pulseaudioFull;
     };
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
     };
     bluetooth.enable = true;
+    cpu.intel.updateMicrocode = true;
   };
 
 
@@ -65,85 +51,90 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    nix
-    nix-repl
-
-    wget
-    curl
-    htop
-    lsof
-    tree
-    binutils
-    sudo
-    manpages
-    psmisc
-    file
-    zip
-    unzip
-    which
-    lshw
-    powertop
-    iotop
-    extrapkgs.margarinetools
-
-    tmux
-    vimHugeX
-    gitAndTools.gitFull
     bashCompletion
-    meld
-    python27Packages.docker_compose
-
-    vlc
-    thunderbird
-    gimp
-    libreoffice
-
+    binutils
+    cabal-install
+    cabal2nix
+    clipit
+    curl
+    dmenu
+    elmPackages.elm
     evince
-    pcmanfm
+    extrapkgs.margarinetools
+    feh
+    file
+    ghc
+    gimp
+    gitAndTools.gitFull
+    gmrun
     gnome3.eog
     gnome3.file-roller
+    gnome3.gnome-bluetooth
     gnome3.gnome-calculator
     gnome3.gnome-disk-utility
     gnome3.gnome-system-monitor
-    gnome3.gnome-bluetooth
     gnome3.networkmanagerapplet
-
+    gnumake
+    go
+    guitarix
+    htop
+    inotify-tools
+    iotop
+    jack1
+    jq
+    libreoffice
+    lm_sensors
+    lshw
+    lsof
+    lz4
+    manpages
+    meld
+    mtr
+    nix
+    nix-prefetch-git
+    pavucontrol
+    pcmanfm
+    pmutils
+    powertop
+    psmisc
+    python27Packages.docker_compose
+    qbittorrent
+    racer
+    redshift
+    reflex
+    rsync
+    rustup
+    sbt
+    scala
+    scrot
+    shared_mime_info
+    sshuttle
+    steam
+    sudo
     taffybar
+    thunderbird
+    tig
+    tmux
+    trayer
+    tree
+    unzip
+    vimHugeX
+    vlc
+    volumeicon
+    wget
+    which
+    wrk
+    xclip
     xfontsel
     xlsfonts
-    dmenu
-    gmrun
-    scrot
-    feh
     xorg.xbacklight
-    xscreensaver
-    xclip
+    xorg.xev
     xorg.xkill
-    clipit
-    redshift
-    pavucontrol
-    volumeicon
-    trayer
-    pmutils
-    shared_mime_info
-
+    xscreensaver
+    zip
     zlib
-    cabal-install
-    cabal2nix
-    ghc
-    gnumake
-    inotify-tools
-    jq
-    lm_sensors
-    lz4
-    mtr
-    nix-prefetch-git
-    nix-repl
-    qbittorrent
-    rsync
-    scala
-    steam
   ];
+
 
   programs = {
     bash.enableCompletion = true;
