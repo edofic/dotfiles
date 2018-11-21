@@ -6,9 +6,9 @@ set mousehide " when typing
 set ruler
 
 set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 set autoindent
 set backspace=indent,eol,start
@@ -38,6 +38,7 @@ set wrap
 set linebreak
 
 set directory=$HOME/.vim/swapfiles//
+set tags=$HOME/.vimtags
 
 
 filetype plugin indent on
@@ -65,15 +66,7 @@ set undoreload=10000
 
 " tab navigation
 nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <F3>      :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
-nnoremap <F4>      :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <F3>      <Esc>:tabprevious<CR>
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <F4>      <Esc>:tabnext<CR>
-inoremap <C-t>     <Esc>:tabnew<CR>
 
 " buffer navigation
 noremap <C-B>  <Esc>:ToggleBufExplorer<CR>
@@ -101,19 +94,16 @@ set colorcolumn=80
 
 " general editing
 inoremap <C-BS> <C-W>
-
 inoremap <C-s> <ESC>:w<CR>i
 nnoremap <C-s> :w<CR>
+nnoremap <Leader>f gqip
+nnoremap <Leader>o vip:sort<CR>
 
 " training wheels: disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-" nnoremap hh <NOP>
-" nnoremap jj <NOP>
-" nnoremap kk <NOP>
-" nnoremap ll <NOP>
 
 nnoremap <Leader>b :BufOnly<CR>
 
@@ -147,12 +137,16 @@ nnoremap <F8> :GundoToggle<CR>
 " easy motion
 map <Leader>s <Plug>(easymotion-bd-w)
 
+" word count
+nnoremap <Leader>c :w !wc -w<CR>
+
 " neocomplete
 set completeopt=menuone " no annoying top window
-let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 0
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources = {}
 " let g:neocomplete#sources.go = ['omni', 'omnifunc']
+let g:neocomplete#sources.rust = ['omni', 'omnifunc']
 inoremap <expr><C-n>  neocomplete#start_manual_complete()
 
 " NERDtree
@@ -169,7 +163,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
+inoremap <C-n> <C-x><C-o>
 
 " go lang settings
 au FileType go nmap <buffer> <Leader>i <Plug>(go-info)
@@ -192,11 +186,20 @@ function! RunPythonTests(folder, module)
   exec ":! cd " . g:py_test_folder . " ; python -m unittest " . g:py_test_module
 endfunction
 
-au FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 " override ftplugin/python
+au FileType python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4 " override ftplugin/python
 au FileType python nnoremap <C-F7> :call flake8#Flake8UnplaceMarkers()<CR>
 au FileType python nnoremap <buffer> <Leader>u :call RunPythonTests(expand('%:p:h'), expand('%:t:r'))<CR>
-
 au FileType python nnoremap <Leader>" /\([^"]\zs""\?\ze[^"]\)\<Bar>\([^"]\zs""\?\ze$\)<CR>
 
 " javascript options
 au FileType javascript nnoremap <buffer> <F7> :SyntasticCheck eslint<CR>
+
+" haskell options
+au FileType haskell nnoremap <buffer> <Leader>h "hyiw:exe "!stack hoogle ".@h<CR>
+au FileType haskell nnoremap <buffer> <Leader>l mm:%!hindent<CR>`m
+
+au FileType vimwiki setlocal textwidth=79
+
+let g:LanguageClient_serverCommands = { 'rust': ['rls'] }
+au FileType rust nnoremap <buffer> K :call LanguageClient_contextMenu()<CR>
+au FileType rust nnoremap <buffer> <Leader>i :call LanguageClient#textDocument_hover()<CR>
