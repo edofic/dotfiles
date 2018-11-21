@@ -140,14 +140,10 @@ map <Leader>s <Plug>(easymotion-bd-w)
 " word count
 nnoremap <Leader>c :w !wc -w<CR>
 
-" neocomplete
-set completeopt=menuone " no annoying top window
-let g:neocomplete#enable_at_startup = 0
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources = {}
-" let g:neocomplete#sources.go = ['omni', 'omnifunc']
-let g:neocomplete#sources.rust = ['omni', 'omnifunc']
-inoremap <expr><C-n>  neocomplete#start_manual_complete()
+" deoplete
+if has('nvim')
+    let g:deoplete#enable_at_startup = 1
+endif
 
 " NERDtree
 noremap <Leader>n <Esc>:NERDTreeToggle<CR>
@@ -167,7 +163,6 @@ inoremap <C-n> <C-x><C-o>
 
 " go lang settings
 au FileType go nmap <buffer> <Leader>i <Plug>(go-info)
-au FileType go NeoCompleteEnable
 au FileType go nmap <buffer> <Leader>p :GoImport
 au FileType go let b:dispatch = 'make goinstall'
 au FileType go nnoremap <buffer> <Leader>:w :GoFmt<CR>:w<CR>

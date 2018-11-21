@@ -70,3 +70,9 @@
 [submodule ".vim/bundle/rust.vim"]
 	path = .vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule ".vim/bundle/deoplete.nvim"]
+	path = .vim/bundle/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
+[submodule ".vim/bundle/deoplete-go"]
+	path = .vim/bundle/deoplete-go
+	url = https://github.com/zchee/deoplete-go
