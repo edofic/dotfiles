@@ -163,7 +163,7 @@ inoremap <C-n> <C-x><C-o>
 
 " go lang settings
 au FileType go nmap <buffer> <Leader>i <Plug>(go-info)
-au FileType go nmap <buffer> <Leader>p :GoImport
+au FileType go nmap <buffer> <Leader>p :GoImports<CR>
 au FileType go let b:dispatch = 'make goinstall'
 au FileType go nnoremap <buffer> <Leader>:w :GoFmt<CR>:w<CR>
 
