@@ -14,8 +14,6 @@ in
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
-    # kernelParams = [ "intel_idle.max_cstate=1" ];
   };
 
   networking = {
@@ -80,7 +78,7 @@ in
     htop
     inotify-tools
     iotop
-    jack1
+    jack2Full
     jq
     libreoffice
     lm_sensors
@@ -97,7 +95,7 @@ in
     pmutils
     powertop
     psmisc
-    python27Packages.docker_compose
+    docker_compose
     qbittorrent
     racer
     redshift
@@ -200,11 +198,6 @@ in
 
     redshift = {
       enable = true;
-
-      # Ljubljana
-      latitude = "46";
-      longitude = "14.5";
-
       temperature = {
         day = 6400;
         night = 4600;
@@ -221,7 +214,7 @@ in
     printing.enable = true;
 
     dbus.enable = true;
-    gnome3.gvfs.enable = true;
+    gvfs.enable = true;
   };
 
   virtualisation = {
@@ -230,6 +223,12 @@ in
       storageDriver = "btrfs";
     };
     virtualbox.host.enable = true;
+  };
+
+  location = {
+    # Ljubljana
+    latitude = 46.0;
+    longitude = 14.5;
   };
 
 
@@ -241,5 +240,5 @@ in
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "17.03";
+  system.stateVersion = "20.03";
 }
