@@ -1,4 +1,4 @@
-import System.Taffybar.Hooks.PagerHints (pagerHints)
+import System.Taffybar.Support.PagerHints (pagerHints)
 import XMonad
 import XMonad.Actions.SwapWorkspaces
 import XMonad.Hooks.DynamicLog
@@ -43,12 +43,12 @@ keyboardShortcuts = [ ((controlMask .|. mod1Mask, xK_l), spawn "xscreensaver-com
                     , ((mod4Mask .|. mod1Mask, xK_s), runStartupScript)
                     , ((noModMask, XF86.xF86XK_AudioRaiseVolume), spawn "amixer set Master 10%+") -- increase volume
                     , ((noModMask, XF86.xF86XK_AudioLowerVolume), spawn "amixer set Master 10%-") -- decrease volume
-                    , ((mod4Mask .|. controlMask, xK_F8), spawn  "xrandr --output eDP1 --mode 1024x768 --output HDMI2 --mode 1024x768 --same-as eDP1 ") -- mirror at 1024x768
-                    , ((mod4Mask .|. controlMask, xK_F9), spawn  "xrandr --output eDP1 --off --output HDMI2 --off") -- everything off
-                    , ((mod4Mask .|. controlMask, xK_F10), spawn  "xrandr --output eDP1 --auto --output DP1 --off --output HDMI2 --off") -- only internal monitor
-                    , ((mod4Mask .|. controlMask, xK_F11), spawn  "xrandr --output eDP1 --off --output HDMI2 --auto") -- only hdmi
-                    , ((mod4Mask .|.  mod1Mask, xK_F11), spawn  "xrandr --output eDP1 --off --output DP1 --auto") -- only hdmi
-                    , ((mod4Mask .|. controlMask, xK_F12), spawn  "xrandr --output eDP1 --auto --primary --preferred --output HDMI2 --auto --right-of eDP1") -- extend desktop
+                    , ((noModMask, XF86.xF86XK_MonBrightnessUp), spawn "xbacklight +10") -- increase brightness
+                    , ((noModMask, XF86.xF86XK_MonBrightnessDown), spawn "xbacklight -10") -- decrease brightness
+                    , ((mod4Mask .|. controlMask, xK_F9), spawn  "xrandr --output eDP1 --off --output DP1 --off") -- everything off
+                    , ((mod4Mask .|. controlMask, xK_F10), spawn  "xrandr --output eDP1 --auto --output DP1 --off") -- only internal monitor
+                    , ((mod4Mask .|. controlMask, xK_F11), spawn  "xrandr --output eDP1 --off --output DP1 --auto") -- only external
+                    , ((mod4Mask .|. controlMask, xK_F12), spawn  "xrandr --output eDP1 --auto --output DP1 --auto --above eDP1") -- extend desktop
                     , ((controlMask, xK_F11), setKeyboardLayout "si")
                     , ((controlMask, xK_F12), setKeyboardLayout "us,si")
                     , ((noModMask, xK_Print ), spawn "scrot screen_%Y-%m-%d-%H-%M-%S.png -d 1")

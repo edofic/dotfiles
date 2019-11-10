@@ -23,11 +23,15 @@ ensure xscreensaver -no-splash
 # workaround for taffybar dbus bug
 DBUS_SESSION_BUS_ADDRESS=$(echo $DBUS_SESSION_BUS_ADDRESS | grep -Eo "^[^,]+") restart taffybar
 
-ensure nm-applet
+restart nm-applet
 
 ensure volumeicon
 
 ensure clipit
+
+ensure blueman-applet
+
+ensure gpg-agent "--daemon --pinentry-program $(which pinentry)"
 
 xset -dpms # turn off screen sleep
 xset r rate 250 30 # keyboard repeat rate
