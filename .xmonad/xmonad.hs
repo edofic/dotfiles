@@ -1,4 +1,3 @@
-import System.Taffybar.Support.PagerHints (pagerHints)
 import XMonad
 import XMonad.Actions.SwapWorkspaces
 import XMonad.Hooks.DynamicLog
@@ -14,7 +13,7 @@ import XMonad.Layout.ThreeColumns (ThreeCol(ThreeColMid))
 import XMonad.Util.EZConfig(additionalKeys)
 import qualified Graphics.X11.ExtraTypes.XF86 as XF86
 
-main = xmonad . ewmh . pagerHints =<< xmobar myConfig
+main = xmonad . ewmh =<< xmobar myConfig
 
 myConfig = defaultConfig
   { terminal = "xterm-tm"

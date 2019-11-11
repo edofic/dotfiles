@@ -109,7 +109,6 @@ in
     sshuttle
     steam
     sudo
-    taffybar
     thunderbird
     tig
     tmux
@@ -122,6 +121,7 @@ in
     wget
     which
     wrk
+    xmobar
     xclip
     xfontsel
     xlsfonts
@@ -182,9 +182,6 @@ in
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
-        extraPackages = haskellPackages: [
-          haskellPackages.taffybar
-        ];
       };
       windowManager.default = "xmonad";
       config = ''
