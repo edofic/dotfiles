@@ -160,12 +160,25 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 inoremap <C-n> <C-x><C-o>
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " go lang settings
+let g:go_auto_sameids = 1
+let g:go_auto_type_info = 1
 au FileType go nmap <buffer> <Leader>i <Plug>(go-info)
 au FileType go nmap <buffer> <Leader>p :GoImports<CR>
 au FileType go let b:dispatch = 'make goinstall'
 au FileType go nnoremap <buffer> <Leader>:w :GoFmt<CR>:w<CR>
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+au FileType go nmap <leader>gt :GoDeclsDir<cr>
+au FileType go nmap <F9> :GoCoverageToggle -short<cr>
+au FileType go nmap <F10> :GoTest -short<cr>
+au FileType go nmap <F12> <Plug>(go-def)
+au FileType go set colorcolumn=120
+
 
 " git options
 au FileType gitcommit setlocal textwidth=80 spell

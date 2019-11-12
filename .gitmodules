@@ -60,13 +60,13 @@
 	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
+	url = https://github.com/airblade/vim-gitgutter.git
 [submodule ".vim/bundle/elm-vim"]
 	path = .vim/bundle/elm-vim
-	url = git@github.com:ElmCast/elm-vim.git
+	url = https://github.com/ElmCast/elm-vim.git
 [submodule ".vim/bundle/LanguageClient-neovim"]
 	path = .vim/bundle/LanguageClient-neovim
-	url = git@github.com:autozimu/LanguageClient-neovim.git
+	url = https://github.com/autozimu/LanguageClient-neovim.git
 [submodule ".vim/bundle/rust.vim"]
 	path = .vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
