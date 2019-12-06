@@ -194,7 +194,7 @@ function! RunPythonTests(folder, module)
   exec ":! cd " . g:py_test_folder . " ; python -m unittest " . g:py_test_module
 endfunction
 
-au FileType python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4 " override ftplugin/python
+au FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 " override ftplugin/python
 au FileType python nnoremap <C-F7> :call flake8#Flake8UnplaceMarkers()<CR>
 au FileType python nnoremap <buffer> <Leader>u :call RunPythonTests(expand('%:p:h'), expand('%:t:r'))<CR>
 au FileType python nnoremap <Leader>" /\([^"]\zs""\?\ze[^"]\)\<Bar>\([^"]\zs""\?\ze$\)<CR>

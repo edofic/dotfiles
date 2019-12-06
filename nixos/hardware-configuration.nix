@@ -20,6 +20,13 @@
 
   boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/3b6034d0-fff2-465e-8d16-3812d4f29b6f";
 
+  fileSystems."/mnt/btrfs-root" =
+    { device = "/dev/mapper/crypted";
+      fsType = "btrfs";
+      options = [ "subvol=/" ];
+    };
+
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/1D89-90D8";
       fsType = "vfat";
