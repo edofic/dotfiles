@@ -19,24 +19,15 @@
 [submodule "snippets"]
 	path = .vim/snippets
 	url = https://github.com/Shougo/neosnippet-snippets
-[submodule "bundle/neosnippet.vim"]
-	path = .vim/bundle/neosnippet.vim
-	url = https://github.com/Shougo/neosnippet.vim
 [submodule ".vim/bundle/BufOnly.vim"]
 	path = .vim/bundle/BufOnly.vim
 	url = https://github.com/vim-scripts/BufOnly.vim
 [submodule ".vim/bundle/bufexplorer"]
 	path = .vim/bundle/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer
-[submodule ".vim/bundle/gundo.vim"]
-	path = .vim/bundle/gundo.vim
-	url = https://github.com/sjl/gundo.vim.git
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
-[submodule ".vim/bundle/vim-dispatch"]
-	path = .vim/bundle/vim-dispatch
-	url = https://github.com/tpope/vim-dispatch.git
 [submodule ".vim/bundle/vim-flake8"]
 	path = .vim/bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
@@ -49,9 +40,6 @@
 [submodule ".vim/bundle/vimwiki"]
 	path = .vim/bundle/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
-[submodule ".vim/bundle/vim-hardtime"]
-	path = .vim/bundle/vim-hardtime
-	url = https://github.com/takac/vim-hardtime.git
 [submodule ".vim/bundle/vim-vue"]
 	path = .vim/bundle/vim-vue
 	url = https://github.com/posva/vim-vue.git
@@ -64,15 +52,12 @@
 [submodule ".vim/bundle/elm-vim"]
 	path = .vim/bundle/elm-vim
 	url = https://github.com/ElmCast/elm-vim.git
-[submodule ".vim/bundle/LanguageClient-neovim"]
-	path = .vim/bundle/LanguageClient-neovim
-	url = https://github.com/autozimu/LanguageClient-neovim.git
-[submodule ".vim/bundle/rust.vim"]
-	path = .vim/bundle/rust.vim
-	url = https://github.com/rust-lang/rust.vim.git
 [submodule ".vim/bundle/deoplete.nvim"]
 	path = .vim/bundle/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim
-[submodule ".vim/bundle/deoplete-go"]
-	path = .vim/bundle/deoplete-go
-	url = https://github.com/zchee/deoplete-go
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule ".vim/bundle/undotree"]
+	path = .vim/bundle/undotree
+	url = https://github.com/mbbill/undotree
