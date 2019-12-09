@@ -132,7 +132,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " gundo
-nnoremap <F8> :GundoToggle<CR>
+nnoremap <F8> :UndotreeToggle<CR>
 
 " easy motion
 map <Leader>s <Plug>(easymotion-bd-w)
