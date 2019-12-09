@@ -76,3 +76,6 @@
 [submodule ".vim/bundle/deoplete-go"]
 	path = .vim/bundle/deoplete-go
 	url = https://github.com/zchee/deoplete-go
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar

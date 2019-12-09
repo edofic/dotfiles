@@ -143,6 +143,7 @@ nnoremap <Leader>c :w !wc -w<CR>
 " deoplete
 if has('nvim')
     let g:deoplete#enable_at_startup = 1
+	call deoplete#custom#option('omni_patterns', { 'go': '\.\w*' })
 endif
 
 " NERDtree
@@ -154,12 +155,12 @@ let g:flake8_show_in_file=1
 let g:flake8_show_in_gutter=1
 
 " tweak omnicompletion
+" autocmd FileType go setlocal omnifunc=go#complete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-inoremap <C-n> <C-x><C-o>
 " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " go lang settings
@@ -207,7 +208,3 @@ au FileType haskell nnoremap <buffer> <Leader>h "hyiw:exe "!stack hoogle ".@h<CR
 au FileType haskell nnoremap <buffer> <Leader>l mm:%!hindent<CR>`m
 
 au FileType vimwiki setlocal textwidth=79
-
-let g:LanguageClient_serverCommands = { 'rust': ['rls'] }
-au FileType rust nnoremap <buffer> K :call LanguageClient_contextMenu()<CR>
-au FileType rust nnoremap <buffer> <Leader>i :call LanguageClient#textDocument_hover()<CR>
