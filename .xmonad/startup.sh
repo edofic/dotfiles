@@ -17,7 +17,7 @@ mkdir -p /tmp/temp
 
 set_wallpaper ~/.xmonad/wallpaper
 
-restart trayer --edge top --align right --widthtype request --expand true --SetDockType true --SetPartialStrut true --transparent true --alpha 0 --tint 0x1A1918 --expand true --heighttype pixel --height 14 --monitor 1 --padding 1
+restart trayer --edge top --align right --widthtype request --expand true --SetDockType true --SetPartialStrut true --transparent true --alpha 0 --tint 0x1A1918 --expand true --heighttype pixel --height 30 --monitor 1 --padding 1
 
 ensure xscreensaver -no-splash
 
