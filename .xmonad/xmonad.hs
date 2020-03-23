@@ -44,10 +44,10 @@ keyboardShortcuts = [ ((controlMask .|. mod1Mask, xK_l), spawn "xscreensaver-com
                     , ((noModMask, XF86.xF86XK_AudioLowerVolume), spawn "amixer set Master 10%-") -- decrease volume
                     , ((noModMask, XF86.xF86XK_MonBrightnessUp), spawn "xbacklight +10") -- increase brightness
                     , ((noModMask, XF86.xF86XK_MonBrightnessDown), spawn "xbacklight -10") -- decrease brightness
-                    , ((mod4Mask .|. controlMask, xK_F9), spawn  "xrandr --output eDP1 --off --output DP1 --off") -- everything off
-                    , ((mod4Mask .|. controlMask, xK_F10), spawn  "xrandr --output eDP1 --auto --output DP1 --off") -- only internal monitor
-                    , ((mod4Mask .|. controlMask, xK_F11), spawn  "xrandr --output eDP1 --off --output DP1 --auto") -- only external
-                    , ((mod4Mask .|. controlMask, xK_F12), spawn  "xrandr --output eDP1 --auto --output DP1 --auto --above eDP1") -- extend desktop
+                    , ((mod4Mask .|. controlMask, xK_F9), spawn  "xrandr --output eDP-1 --off --output DP-1 --off") -- everything off
+                    , ((mod4Mask .|. controlMask, xK_F10), spawn  "xrandr --output eDP-1 --auto --output DP-1 --off") -- only- internal monitor
+                    , ((mod4Mask .|. controlMask, xK_F11), spawn  "xrandr --output eDP-1 --off --output DP-1 --auto") -- only- external
+                    , ((mod4Mask .|. controlMask, xK_F12), spawn  "xrandr --output eDP-1 --auto --output DP-1 --auto --above eDP-1") -- extend desktop
                     , ((controlMask, xK_F11), setKeyboardLayout "si")
                     , ((controlMask, xK_F12), setKeyboardLayout "us,si")
                     , ((noModMask, xK_Print ), spawn "scrot screen_%Y-%m-%d-%H-%M-%S.png -d 1")
