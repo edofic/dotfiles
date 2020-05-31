@@ -7,6 +7,7 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration-desktop.nix
+      ./common.nix
     ];
 
   boot = {
