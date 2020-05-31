@@ -9,4 +9,19 @@
     # kernelPackages = pkgs.linuxPackages_latest;
     extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
   };
+
+  networking = {
+    hostName = "amaterasu";
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        20001
+        27036 27037 # steam
+      ];
+      allowedUDPPorts = [
+        27031 27032 27033 27034 27035 27036
+      ];
+    };
+  };
 }

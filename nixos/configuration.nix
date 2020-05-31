@@ -10,15 +10,6 @@ in
       ./common.nix
     ];
 
-  networking = {
-    hostName = "amaterasu";
-    networkmanager.enable = true;
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 20001 ];
-    };
-  };
-
   hardware = {
     pulseaudio = {
       enable = true;
