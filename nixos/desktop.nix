@@ -23,7 +23,13 @@ in
     networkmanager.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 20001 ];
+      allowedTCPPorts = [
+        20001
+        27036 27037 # steam
+      ];
+      allowedUDPPorts = [
+        27031 27032 27033 27034 27035 27036
+      ];
     };
   };
 
@@ -32,12 +38,28 @@ in
       enable = true;
       # support32Bit = true;
       package = pkgs.pulseaudioFull;
+      # configFile = pkgs.writeText "default.pa" ''
+      #   load-module module-bluetooth-policy
+      #   load-module module-bluetooth-discover
+      #   ## module fails to load with
+      #   ##   module-bluez5-device.c: Failed to get device path from module arguments
+      #   ##   module.c: Failed to load module "module-bluez5-device" (argument: ""): initialization failed.
+      #   # load-module module-bluez5-device
+      #   # load-module module-bluez5-discover
+      # '';
     };
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
     };
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      package = pkgs.bluezFull;
+      # extraConfig = "
+      #   [General]
+      #   Enable=Source,Sink,Media,Socket
+      # ";
+    };
     cpu.intel.updateMicrocode = true;
   };
 
@@ -48,6 +70,7 @@ in
 
   nixpkgs.config = {
     allowUnfree = true;
+    allowBroken = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -99,13 +122,9 @@ in
     psmisc
     docker_compose
     qbittorrent
-    racer
     redshift
-    reflex
     rsync
-    rustup
     sbt
-    scala
     scrot
     shared_mime_info
     sshuttle
@@ -164,6 +183,8 @@ in
 
     fstrim.enable = true;
 
+    blueman.enable = true;
+
     xserver = {
       enable = true;
       layout = "us,si";
@@ -204,6 +225,7 @@ in
       systemCronJobs = [
         "*/5 * * * * root	timesnap.sh /mnt/btrfs-root __root/home timesnaps__home__5_min 300"
         "@reboot nvidia-settings --assign CurrentMetaMode=\"nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }\""
+        "@reboot nvidia-settings --assign=\"AllowFlipping=0\""
       ];
     };
 
@@ -211,7 +233,44 @@ in
 
     dbus.enable = true;
     gvfs.enable = true;
+
+    udev.extraRules = ''
+      # This rule is needed for basic functionality of the controller in Steam and keyboard/mouse emulation
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="28de", MODE="0666"
+
+      # This rule is necessary for gamepad emulation; make sure you replace 'pgriffais' with a group that the user that runs Steam belongs to
+      KERNEL=="uinput", MODE="0660", GROUP="pgriffais", OPTIONS+="static_node=uinput"
+
+      # Valve HID devices over USB hidraw
+      KERNEL=="hidraw*", ATTRS{idVendor}=="28de", MODE="0666"
+
+      # Valve HID devices over bluetooth hidraw
+      KERNEL=="hidraw*", KERNELS=="*28DE:*", MODE="0666"
+
+      # DualShock 4 over USB hidraw
+      KERNEL=="hidraw*", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="05c4", MODE="0666"
+
+      # DualShock 4 wireless adapter over USB hidraw
+      KERNEL=="hidraw*", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ba0", MODE="0666"
+
+      # DualShock 4 Slim over USB hidraw
+      KERNEL=="hidraw*", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="09cc", MODE="0666"
+
+      # DualShock 4 over bluetooth hidraw
+      KERNEL=="hidraw*", KERNELS=="*054C:05C4*", MODE="0666"
+
+      # DualShock 4 Slim over bluetooth hidraw
+      KERNEL=="hidraw*", KERNELS=="*054C:09CC*", MODE="0666"
+
+      # Nintendo Switch Pro Controller over USB hidraw
+      KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", MODE="0666"
+
+      # Nintendo Switch Pro Controller over bluetooth hidraw
+      KERNEL=="hidraw*", KERNELS=="*057E:2009*", MODE="0666"
+    '';
   };
+
+  xdg.portal.enable = true;
 
   virtualisation = {
     docker = {
