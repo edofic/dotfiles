@@ -9,7 +9,6 @@
     ];
 
     hardware = {
-      brightnessctl.enable = true;
       cpu.intel.updateMicrocode = true;
     };
 
