@@ -8,7 +8,11 @@
       ./common.nix
     ];
 
-  hardware.cpu.intel.updateMicrocode = true;
+    hardware = {
+      brightnessctl.enable = true;
+      cpu.intel.updateMicrocode = true;
+    };
+
 
   services = {
     xserver = {

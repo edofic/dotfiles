@@ -123,7 +123,7 @@ in
     xclip
     xfontsel
     xlsfonts
-    xorg.xbacklight
+    acpilight # xorg.xbacklight
     xorg.xev
     xorg.xkill
     xscreensaver
@@ -219,7 +219,7 @@ in
     home = "/home/andraz";
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "audio" "docker" "networkmanager" "vboxusers" "wheel" ];
+    extraGroups = [ "audio" "docker" "networkmanager" "vboxusers" "video" "wheel" ];
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
