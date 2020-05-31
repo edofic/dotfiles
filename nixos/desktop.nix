@@ -8,64 +8,12 @@
     ];
 
   services = {
-    logind = {
-      extraConfig = ''
-        HandlePowerKey=ignore
-      '';
-    };
+    xserver.videoDrivers = [ "nvidia" ];
 
-    fstrim.enable = true;
-
-    blueman.enable = true;
-
-    xserver = {
-      enable = true;
-      layout = "us,si";
-      xkbOptions = "caps:swapescape,grp:switch,eurosign:e,keypad:pointerkeys";
-      synaptics = {
-        enable = true;
-        twoFingerScroll = true;
-        horizontalScroll = true;
-        additionalOptions = ''
-          Option "VertScrollDelta" "-58"
-          Option "HorizScrollDelta" "-58"
-                            '';
-      };
-      libinput.enable = false;
-      desktopManager = {
-        # gnome3.enable = true;
-        xfce.enable = true;
-      };
-      windowManager = {
-        xmonad = {
-          enable = true;
-          enableContribAndExtras = true;
-        };
-      };
-      videoDrivers = [ "nvidia" ];
-    };
-
-    redshift = {
-      enable = true;
-      temperature = {
-        day = 6400;
-        night = 4600;
-      };
-    };
-
-    cron = {
-      enable = true;
-      systemCronJobs = [
-        "*/5 * * * * root	timesnap.sh /mnt/btrfs-root __root/home timesnaps__home__5_min 300"
-        "@reboot nvidia-settings --assign CurrentMetaMode=\"nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }\""
-        "@reboot nvidia-settings --assign=\"AllowFlipping=0\""
-      ];
-    };
-
-    printing.enable = true;
-
-    dbus.enable = true;
-    gvfs.enable = true;
+    cron.systemCronJobs = [
+      "@reboot nvidia-settings --assign CurrentMetaMode=\"nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }\""
+      "@reboot nvidia-settings --assign=\"AllowFlipping=0\""
+    ];
 
     udev.extraRules = ''
       # This rule is needed for basic functionality of the controller in Steam and keyboard/mouse emulation
