@@ -66,32 +66,5 @@
     };
 
     printing.enable = true;
-
-    dbus.enable = true;
-    gvfs.enable = true;
   };
-
-  virtualisation = {
-    docker = {
-      enable = true;
-      storageDriver = "btrfs";
-    };
-    virtualbox.host.enable = true;
-  };
-
-  location = {
-    # Ljubljana
-    latitude = 46.0;
-    longitude = 14.5;
-  };
-
-  users.extraUsers.andraz = {
-    home = "/home/andraz";
-    isNormalUser = true;
-    uid = 1000;
-    extraGroups = [ "audio" "docker" "networkmanager" "vboxusers" "wheel" ];
-  };
-
-  # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "20.03";
 }
