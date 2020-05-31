@@ -10,37 +10,6 @@ in
       ./common.nix
     ];
 
-  hardware = {
-    pulseaudio = {
-      enable = true;
-      # support32Bit = true;
-      package = pkgs.pulseaudioFull;
-      # configFile = pkgs.writeText "default.pa" ''
-      #   load-module module-bluetooth-policy
-      #   load-module module-bluetooth-discover
-      #   ## module fails to load with
-      #   ##   module-bluez5-device.c: Failed to get device path from module arguments
-      #   ##   module.c: Failed to load module "module-bluez5-device" (argument: ""): initialization failed.
-      #   # load-module module-bluez5-device
-      #   # load-module module-bluez5-discover
-      # '';
-    };
-    opengl = {
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-    bluetooth = {
-      enable = true;
-      package = pkgs.bluezFull;
-      # extraConfig = "
-      #   [General]
-      #   Enable=Source,Sink,Media,Socket
-      # ";
-    };
-    cpu.intel.updateMicrocode = true;
-  };
-
-
   time.timeZone = "Europe/Ljubljana";
 
   nix.package = pkgs.nixUnstable;

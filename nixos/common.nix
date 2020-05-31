@@ -24,4 +24,20 @@
       ];
     };
   };
+
+  hardware = {
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+    };
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+    bluetooth = {
+      enable = true;
+      package = pkgs.bluezFull;
+    };
+    cpu.intel.updateMicrocode = true;
+  };
 }

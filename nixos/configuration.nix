@@ -10,20 +10,7 @@ in
       ./common.nix
     ];
 
-  hardware = {
-    pulseaudio = {
-      enable = true;
-      # support32Bit = true;
-      package = pkgs.pulseaudioFull;
-    };
-    opengl = {
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-    bluetooth.enable = true;
-    cpu.intel.updateMicrocode = true;
-  };
-
+  hardware.cpu.intel.updateMicrocode = true;
 
   time.timeZone = "Europe/Ljubljana";
 
