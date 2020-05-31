@@ -12,8 +12,6 @@ in
 
   hardware.cpu.intel.updateMicrocode = true;
 
-  time.timeZone = "Europe/Ljubljana";
-
   environment.systemPackages = with pkgs; [
     bashCompletion
     binutils

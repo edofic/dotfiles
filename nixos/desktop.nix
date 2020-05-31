@@ -10,8 +10,6 @@ in
       ./common.nix
     ];
 
-  time.timeZone = "Europe/Ljubljana";
-
   environment.systemPackages = with pkgs; [
     bashCompletion
     binutils
