@@ -165,8 +165,8 @@ inoremap <C-n> <C-x><C-o>
 " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " go lang settings
-let g:go_auto_sameids = 1
-let g:go_auto_type_info = 1
+let g:go_auto_sameids = 0
+let g:go_auto_type_info = 0
 au FileType go nmap <buffer> <Leader>i <Plug>(go-info)
 au FileType go nmap <buffer> <Leader>p :GoImports<CR>
 au FileType go let b:dispatch = 'make goinstall'
