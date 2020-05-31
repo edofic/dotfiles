@@ -12,13 +12,6 @@ in
 
   time.timeZone = "Europe/Ljubljana";
 
-  nix.package = pkgs.nixUnstable;
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken = true;
-  };
-
   environment.systemPackages = with pkgs; [
     bashCompletion
     binutils

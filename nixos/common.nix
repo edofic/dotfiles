@@ -40,4 +40,8 @@
     };
     cpu.intel.updateMicrocode = true;
   };
+
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 }
