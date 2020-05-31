@@ -130,4 +130,24 @@ in
     zip
     zlib
   ];
+
+  programs = {
+    bash.enableCompletion = true;
+    zsh.enable = true;
+  };
+
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      corefonts
+      inconsolata
+      symbola
+      ubuntu_font_family
+      unifont
+      vistafonts
+      powerline-fonts
+    ];
+  };
+
 }
