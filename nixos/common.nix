@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let extrapkgs = pkgs.callPackage ./extras/all.nix {};
+in
+
 {
   boot = {
     loader = {
@@ -46,4 +49,85 @@
   };
 
   time.timeZone = "Europe/Ljubljana";
+
+  environment.systemPackages = with pkgs; [
+    bashCompletion
+    binutils
+    cabal-install
+    cabal2nix
+    clipit
+    curl
+    dmenu
+    elmPackages.elm
+    evince
+    extrapkgs.margarinetools
+    feh
+    file
+    ghc
+    gimp
+    gitAndTools.gitFull
+    gmrun
+    gnome3.eog
+    gnome3.file-roller
+    gnome3.gnome-bluetooth
+    gnome3.gnome-calculator
+    gnome3.gnome-disk-utility
+    gnome3.gnome-system-monitor
+    gnome3.networkmanagerapplet
+    gnumake
+    go
+    guitarix
+    htop
+    inotify-tools
+    iotop
+    jack2Full
+    jq
+    libreoffice
+    lm_sensors
+    lshw
+    lsof
+    lz4
+    manpages
+    meld
+    mtr
+    nix
+    nix-prefetch-git
+    pavucontrol
+    pcmanfm
+    pmutils
+    powertop
+    psmisc
+    docker_compose
+    qbittorrent
+    redshift
+    rsync
+    sbt
+    scrot
+    shared_mime_info
+    sshuttle
+    steam
+    sudo
+    thunderbird
+    tig
+    tmux
+    trayer
+    tree
+    unzip
+    vimHugeX
+    vlc
+    volumeicon
+    wget
+    which
+    wrk
+    xmobar
+    xclip
+    xfontsel
+    xlsfonts
+    xorg.xbacklight
+    xorg.xev
+    xorg.xkill
+    xscreensaver
+    zip
+    zlib
+  ];
 }

@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
-let extrapkgs = pkgs.callPackage ./extras/all.nix {};
-in
 
 {
   imports =
@@ -11,91 +9,6 @@ in
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
-
-  environment.systemPackages = with pkgs; [
-    bashCompletion
-    binutils
-    cabal-install
-    cabal2nix
-    clipit
-    curl
-    dmenu
-    elmPackages.elm
-    evince
-    extrapkgs.margarinetools
-    feh
-    file
-    ghc
-    gimp
-    gitAndTools.gitFull
-    gmrun
-    gnome3.eog
-    gnome3.file-roller
-    gnome3.gnome-bluetooth
-    gnome3.gnome-calculator
-    gnome3.gnome-disk-utility
-    gnome3.gnome-system-monitor
-    gnome3.networkmanagerapplet
-    gnumake
-    go
-    guitarix
-    htop
-    inotify-tools
-    iotop
-    jack2Full
-    jq
-    libreoffice
-    lm_sensors
-    lshw
-    lsof
-    lz4
-    manpages
-    meld
-    mtr
-    nix
-    nix-prefetch-git
-    pavucontrol
-    pcmanfm
-    pmutils
-    powertop
-    psmisc
-    docker_compose
-    qbittorrent
-    redshift
-    reflex
-    rsync
-    rustup
-    sbt
-    scala
-    scrot
-    shared_mime_info
-    sshuttle
-    steam
-    sudo
-    thunderbird
-    tig
-    tmux
-    trayer
-    tree
-    unzip
-    vimHugeX
-    vlc
-    volumeicon
-    wget
-    which
-    wrk
-    xmobar
-    xclip
-    xfontsel
-    xlsfonts
-    xorg.xbacklight
-    xorg.xev
-    xorg.xkill
-    xscreensaver
-    zip
-    zlib
-  ];
-
 
   programs = {
     bash.enableCompletion = true;
@@ -190,7 +103,6 @@ in
     latitude = 46.0;
     longitude = 14.5;
   };
-
 
   users.extraUsers.andraz = {
     home = "/home/andraz";
