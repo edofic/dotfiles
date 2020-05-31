@@ -97,7 +97,6 @@ in
     psmisc
     docker_compose
     qbittorrent
-    racer
     redshift
     reflex
     rsync
