@@ -162,6 +162,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+inoremap <C-n> <C-x><C-o>
 " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " go lang settings
@@ -169,6 +170,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " let g:go_auto_type_info = 1
 let g:go_gopls_complete_unimported = 1
 let g:go_rename_command = 'gopls'
+let g:go_auto_sameids = 0
+let g:go_auto_type_info = 0
 au FileType go nmap <buffer> <Leader>i <Plug>(go-info)
 au FileType go imap <buffer> <C-e> <Esc>:GoIfErr<CR>2kA
 au FileType go nmap <buffer> <Leader>p :GoImports<CR>
