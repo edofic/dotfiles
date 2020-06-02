@@ -109,6 +109,7 @@ nnoremap <Leader>b :BufOnly<CR>
 
 " previous file
 nnoremap ,, <C-^>
+nnoremap ,. :GoAlternate!<CR>
 
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
@@ -143,7 +144,7 @@ nnoremap <Leader>c :w !wc -w<CR>
 " deoplete
 if has('nvim')
     let g:deoplete#enable_at_startup = 1
-	call deoplete#custom#option('omni_patterns', { 'go': '\.\w*' })
+	"call deoplete#custom#option('omni_patterns', { 'go': '\.\w*' })
 endif
 
 " NERDtree
@@ -164,12 +165,18 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " go lang settings
-let g:go_auto_sameids = 1
-let g:go_auto_type_info = 1
+" let g:go_auto_sameids = 1
+" let g:go_auto_type_info = 1
+let g:go_gopls_complete_unimported = 1
+let g:go_rename_command = 'gopls'
 au FileType go nmap <buffer> <Leader>i <Plug>(go-info)
+au FileType go imap <buffer> <C-e> <Esc>:GoIfErr<CR>2kA
 au FileType go nmap <buffer> <Leader>p :GoImports<CR>
+au FileType go nmap <buffer> <Leader>d :GoDeclsDir<CR>
+"au FileType go nmap <buffer> <Leader>n :GoSameIdsToggle<CR>
 au FileType go let b:dispatch = 'make goinstall'
 au FileType go nnoremap <buffer> <Leader>:w :GoFmt<CR>:w<CR>
+au FileType go nnoremap <buffer> <Leader>] :GoDefType<CR>
 au FileType go set noexpandtab
 au FileType go set shiftwidth=4
 au FileType go set softtabstop=4
@@ -195,7 +202,7 @@ function! RunPythonTests(folder, module)
   exec ":! cd " . g:py_test_folder . " ; python -m unittest " . g:py_test_module
 endfunction
 
-au FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 " override ftplugin/python
+"au FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 " override ftplugin/python
 au FileType python nnoremap <C-F7> :call flake8#Flake8UnplaceMarkers()<CR>
 au FileType python nnoremap <buffer> <Leader>u :call RunPythonTests(expand('%:p:h'), expand('%:t:r'))<CR>
 au FileType python nnoremap <Leader>" /\([^"]\zs""\?\ze[^"]\)\<Bar>\([^"]\zs""\?\ze$\)<CR>
