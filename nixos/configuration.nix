@@ -13,6 +13,7 @@
     };
 
 
+
   services = {
     xserver = {
       synaptics = {
@@ -32,5 +33,12 @@
         EndSection
       '';
     };
+
+    udev.extraRules = ''
+      # Allow 'video' group uses to alter brightness
+      SUBSYSTEM=="backlight", ACTION=="add", \
+        RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness", \
+        RUN+="${pkgs.coreutils}/bin/chmod g+w /sys/class/backlight/%k/brightness"
+    '';
   };
 }
