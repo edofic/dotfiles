@@ -90,7 +90,7 @@ endif
 
 set nofoldenable
 
-set colorcolumn=80
+set colorcolumn=120
 
 " general editing
 inoremap <C-BS> <C-W>
@@ -190,9 +190,14 @@ au FileType go nmap <F10> :GoTest -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
 au FileType go set colorcolumn=120
 
+au FileType yaml set shiftwidth=2
+au FileType yaml set softtabstop=2
+au FileType yaml set tabstop=2
 
 " git options
 au FileType gitcommit setlocal textwidth=80 spell
+autocmd QuickFixCmdPost *grep* cwindow
+
 
 " python options
 function! RunPythonTests(folder, module)
